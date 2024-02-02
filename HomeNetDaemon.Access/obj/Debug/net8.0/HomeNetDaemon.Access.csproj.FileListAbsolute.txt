@@ -1,4 +1,0 @@
-/Users/justus/dev/HomeNetDaemon/HomeNetDaemon.Access/obj/Debug/net8.0/HomeNetDaemon.Access.GeneratedMSBuildEditorConfig.editorconfig
-/Users/justus/dev/HomeNetDaemon/HomeNetDaemon.Access/obj/Debug/net8.0/HomeNetDaemon.Access.AssemblyInfoInputs.cache
-/Users/justus/dev/HomeNetDaemon/HomeNetDaemon.Access/obj/Debug/net8.0/HomeNetDaemon.Access.AssemblyInfo.cs
-/Users/justus/dev/HomeNetDaemon/HomeNetDaemon.Access/obj/Debug/net8.0/HomeNetDaemon.Access.csproj.CoreCompileInputs.cache
