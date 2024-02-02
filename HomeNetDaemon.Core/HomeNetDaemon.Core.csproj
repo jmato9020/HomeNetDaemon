@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HomeNetDaemon.Access\HomeNetDaemon.Access.csproj" />
+  </ItemGroup>
+
 </Project>
