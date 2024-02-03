@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeNetDaemon.Access", "Hom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeNetDaemon.Desktop", "HomeNetDaemon.Desktop\HomeNetDaemon.Desktop.csproj", "{7FDE2EC2-CCC8-449E-A784-2840D2C2774B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeNetDaemon.Web", "HomeNetDaemon.Web\HomeNetDaemon.Web.csproj", "{55973CC4-29F2-4166-B323-8D8DA77E9643}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{7FDE2EC2-CCC8-449E-A784-2840D2C2774B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FDE2EC2-CCC8-449E-A784-2840D2C2774B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7FDE2EC2-CCC8-449E-A784-2840D2C2774B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{55973CC4-29F2-4166-B323-8D8DA77E9643}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55973CC4-29F2-4166-B323-8D8DA77E9643}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55973CC4-29F2-4166-B323-8D8DA77E9643}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55973CC4-29F2-4166-B323-8D8DA77E9643}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
