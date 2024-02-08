@@ -1,0 +1,16 @@
+﻿@page "/"
+@using HomeNetDaemon.Access
+@using HomeNetDaemon.Core
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+<button @onclick="ToggleLight"> Toggle </button>
+Welcome to your new app.
+
+@code{
+  HomeNetDaemon.Access.Entities entities { get; set;} = null!;
+  public void ToggleLight()
+  {
+    entities.Light.Tvr.Toggle();
+  }
+}
