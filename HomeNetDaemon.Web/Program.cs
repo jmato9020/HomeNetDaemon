@@ -4,6 +4,7 @@ using NetDaemon.AppModel;
 using NetDaemon.Extensions.Logging;
 using NetDaemon.Runtime;
 using HomeNetDaemon.Access;
+using HomeNetDaemon.Web;
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -16,14 +17,21 @@ builder.Host
     services
         .AddAppsFromAssembly(Assembly.GetExecutingAssembly())
         .AddNetDaemonStateManager()
-        .AddHomeAssistantGenerated();
+        .AddHomeAssistantGenerated().AddSingleton<IEntities,Entities>();
   });
+
+
+// adding MVC / WebAPI controllers
+builder.Services.AddControllers();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -37,6 +45,9 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
+
+// use controller routes
+app.MapControllers();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();

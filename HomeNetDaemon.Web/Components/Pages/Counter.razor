@@ -1,4 +1,6 @@
-﻿@page "/counter"
+﻿@using HomeNetDaemon.Access
+@using HomeNetDaemon.Core
+@page "/counter"
 @rendermode InteractiveServer
 
 <PageTitle>Counter</PageTitle>
@@ -10,10 +12,14 @@
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
+    [Inject]
+    HomeNetDaemon.Access.Entities entities { get; set;} = null!;
     private int currentCount = 0;
 
     private void IncrementCount()
     {
         currentCount++;
+        Console.WriteLine("Here");
+        entities.Light.Tvr.Toggle();
     }
 }
