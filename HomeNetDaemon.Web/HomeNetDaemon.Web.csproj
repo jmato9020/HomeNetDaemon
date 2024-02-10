@@ -1,16 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
+    <ProjectReference Include="..\..\NetDaemon\netdaemon\src\AppModel\NetDaemon.AppModel\NetDaemon.AppModel.csproj" />
+    <ProjectReference Include="..\..\NetDaemon\netdaemon\src\Client\NetDaemon.HassClient\NetDaemon.Client.csproj" />
+    <ProjectReference Include="..\..\NetDaemon\netdaemon\src\Extensions\NetDaemon.Extensions.Logging\NetDaemon.Extensions.Logging.csproj" />
+    <ProjectReference Include="..\..\NetDaemon\netdaemon\src\HassModel\NetDaemon.HassModel.Integration\NetDaemon.HassModel.Integration.csproj" />
+    <ProjectReference Include="..\..\NetDaemon\netdaemon\src\Runtime\NetDaemon.Runtime\NetDaemon.Runtime.csproj" />
+    <ProjectReference Include="..\..\NetDaemon\src\AppModel\NetDaemon.AppModel\NetDaemon.AppModel.csproj" />
+    <ProjectReference Include="..\..\NetDaemon\src\Client\NetDaemon.HassClient\NetDaemon.Client.csproj" />
+    <ProjectReference Include="..\..\NetDaemon\src\Extensions\NetDaemon.Extensions.Logging\NetDaemon.Extensions.Logging.csproj" />
+    <ProjectReference Include="..\..\NetDaemon\src\HassModel\NetDaemon.HassModel.Integration\NetDaemon.HassModel.Integration.csproj" />
+    <ProjectReference Include="..\..\NetDaemon\src\Runtime\NetDaemon.Runtime\NetDaemon.Runtime.csproj" />
     <ProjectReference Include="..\HomeNetDaemon.Access\HomeNetDaemon.Access.csproj" />
     <ProjectReference Include="..\HomeNetDaemon.Core\HomeNetDaemon.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.1" />
-    <PackageReference Include="NetDaemon.AppModel" Version="24.3.1" />
-    <PackageReference Include="NetDaemon.Client" Version="24.3.1" />
-    <PackageReference Include="NetDaemon.Extensions.Logging" Version="24.3.1" />
-    <PackageReference Include="NetDaemon.Runtime" Version="24.3.1" />
   </ItemGroup>
 
   <PropertyGroup>

@@ -9,15 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeNetDaemon.Access", "Hom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeNetDaemon.Web", "HomeNetDaemon.Web\HomeNetDaemon.Web.csproj", "{A7DB8028-D793-455A-A7DB-A499737313F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetDaemon.AppModel", "..\NetDaemon\netdaemon\src\AppModel\NetDaemon.AppModel\NetDaemon.AppModel.csproj", "{172E71B9-C693-475B-AA31-F5DD8EAF4DAB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetDaemon.AppModel", "..\NetDaemon\src\AppModel\NetDaemon.AppModel\NetDaemon.AppModel.csproj", "{172E71B9-C693-475B-AA31-F5DD8EAF4DAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetDaemon.Client", "..\NetDaemon\netdaemon\src\Client\NetDaemon.HassClient\NetDaemon.Client.csproj", "{D04D52CF-5AF1-44A7-9AEC-71E21631E309}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetDaemon.Client", "..\NetDaemon\src\Client\NetDaemon.HassClient\NetDaemon.Client.csproj", "{D04D52CF-5AF1-44A7-9AEC-71E21631E309}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetDaemon.Extensions.Logging", "..\NetDaemon\netdaemon\src\Extensions\NetDaemon.Extensions.Logging\NetDaemon.Extensions.Logging.csproj", "{7BD350EF-6E6A-40E4-9462-6A9763E33424}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetDaemon.Extensions.Logging", "..\NetDaemon\src\Extensions\NetDaemon.Extensions.Logging\NetDaemon.Extensions.Logging.csproj", "{7BD350EF-6E6A-40E4-9462-6A9763E33424}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetDaemon.HassModel.Integration", "..\NetDaemon\netdaemon\src\HassModel\NetDaemon.HassModel.Integration\NetDaemon.HassModel.Integration.csproj", "{3D374947-FE03-4106-B686-A8A87FC8953C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetDaemon.HassModel.Integration", "..\NetDaemon\src\HassModel\NetDaemon.HassModel.Integration\NetDaemon.HassModel.Integration.csproj", "{3D374947-FE03-4106-B686-A8A87FC8953C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetDaemon.Runtime", "..\NetDaemon\netdaemon\src\Runtime\NetDaemon.Runtime\NetDaemon.Runtime.csproj", "{619FD090-F42A-4001-94B1-9E5404D874DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetDaemon.Runtime", "..\NetDaemon\src\Runtime\NetDaemon.Runtime\NetDaemon.Runtime.csproj", "{619FD090-F42A-4001-94B1-9E5404D874DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
