@@ -10,7 +10,7 @@
 
 <button @onclick="GetColorFromLight"> Get Current Color </button>
 
-<button @onclick="ToggleLight">Toggle</button>
+<button @onclick="livingRoomLightsController.ToggleHomeScene">Toggle</button>
 <div class="container">
   <div class="row">
     <label class="homelabel">
@@ -42,14 +42,21 @@ Welcome to your new app.
 
 
   [Inject]
-  HomeNetDaemon.Access.LightEntities entities { get; set;} = null!;
+  HomeNetDaemon.Access.LightEntities LightEntities { get; set;} = null!;
+
+  [Inject]
+  HomeNetDaemon.Access.Entities Entities {get; set;} = null!;
   
   LightController lightController {get; set; } = null!;
+
+  LivingRoomLightsController livingRoomLightsController {get; set;} = null!;
+
   string RgbResponse = string.Empty;
 
   protected override void OnInitialized() // = On Page Load
   {   
-      lightController = new LightController(entities.Tvl);
+      lightController = new LightController(LightEntities.Tvl);
+      livingRoomLightsController = new LivingRoomLightsController(Entities);
   }
   private void GetColorFromLight()
   {
