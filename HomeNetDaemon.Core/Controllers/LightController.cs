@@ -16,4 +16,17 @@ public class LightController
     m_lightEntity.Toggle();
   }
 
+  private IReadOnlyList<double>? GetCurrentColorRgb(){
+    return m_lightEntity.Attributes?.RgbColor;
+  }
+
+  public string ReadRgbAsString(){
+    var color = GetCurrentColorRgb();
+    if(color!=null){
+      return $"R:{color[0]} G:{color[1]} B:{color[2]}" ;
+    }
+    else{
+      return string.Empty;
+    }
+  }
 }

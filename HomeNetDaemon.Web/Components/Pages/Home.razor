@@ -1,16 +1,72 @@
-﻿@page "/"
-@using HomeNetDaemon.Access
+﻿@using HomeNetDaemon.Access
 @using HomeNetDaemon.Core
+@page "/"
+@rendermode InteractiveServer
+
+
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
-<button @onclick="ToggleLight"> Toggle </button>
+
+<button @onclick="GetColorFromLight"> Get Current Color </button>
+
+<button @onclick="livingRoomLightsController.ToggleHomeScene">Toggle</button>
+<div class="container">
+  <div class="row">
+    <label class="homelabel">
+      R:
+      <InputText @bind-Value="r_value"/>
+    </label>
+    <label>
+      G:
+      <InputText @bind-Value="g_value"/>
+    </label>
+    <label>
+      B:
+      <InputText @bind-Value="b_value"/>
+    </label>
+
+  </div>
+</div>
+
+
+<div>
+   @RgbResponse;
+</div>
 Welcome to your new app.
 
 @code{
-  HomeNetDaemon.Access.Entities entities { get; set;} = null!;
-  public void ToggleLight()
+  string r_value = string.Empty;
+  string g_value = string.Empty;
+  string b_value = string.Empty;
+
+
+  [Inject]
+  HomeNetDaemon.Access.LightEntities LightEntities { get; set;} = null!;
+
+  [Inject]
+  HomeNetDaemon.Access.Entities Entities {get; set;} = null!;
+  
+  LightController lightController {get; set; } = null!;
+
+  LivingRoomLightsController livingRoomLightsController {get; set;} = null!;
+
+  string RgbResponse = string.Empty;
+
+  protected override void OnInitialized() // = On Page Load
+  {   
+      lightController = new LightController(LightEntities.Tvl);
+      livingRoomLightsController = new LivingRoomLightsController(Entities);
+  }
+  private void GetColorFromLight()
   {
-    entities.Light.Tvr.Toggle();
+    RgbResponse = lightController.ReadRgbAsString();
+  }
+  private void ToggleLight()
+  {
+    lightController.Toggle();
   }
 }
+
+
+
