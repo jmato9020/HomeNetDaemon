@@ -10,4 +10,8 @@
     <ProjectReference Include="..\HomeNetDaemon.Access\HomeNetDaemon.Access.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="XML/Roots/" />
+  </ItemGroup>
+
 </Project>

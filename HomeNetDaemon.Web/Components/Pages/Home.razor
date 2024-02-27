@@ -1,5 +1,6 @@
 ﻿@using HomeNetDaemon.Access
-@using HomeNetDaemon.Core
+@using HomeNetDaemon.Core.Lights.Controllers
+@inject IJSRuntime JS
 @page "/"
 @rendermode InteractiveServer
 
@@ -15,48 +16,70 @@
   <div class="row">
     <label class="homelabel">
       R:
-      <InputText @bind-Value="r_value"/>
+      <InputText @bind-Value="r_value" />
     </label>
     <label>
       G:
-      <InputText @bind-Value="g_value"/>
+      <InputText @bind-Value="g_value" />
     </label>
     <label>
       B:
-      <InputText @bind-Value="b_value"/>
+      <InputText @bind-Value="b_value" />
     </label>
 
   </div>
 </div>
 
+<button @onclick="DownloadFileFromStream">
+  Download File From Stream
+</button>
+<button @onclick="SetLightsHome">
+  Set Home
+</button>
+
+
+
 
 <div>
-   @RgbResponse;
+  @RgbResponse;
 </div>
 Welcome to your new app.
+<script>
+  window.downloadFileFromStream = async (fileName, contentStreamReference) => {
+    const arrayBuffer = await contentStreamReference.arrayBuffer();
+    const blob = new Blob([arrayBuffer]);
+    const url = URL.createObjectURL(blob);
+    const anchorElement = document.createElement('a');
+    anchorElement.href = url;
+    anchorElement.download = fileName ?? '';
+    anchorElement.click();
+    anchorElement.remove();
+    URL.revokeObjectURL(url);
+  }
+</script>
 
-@code{
+@code {
   string r_value = string.Empty;
   string g_value = string.Empty;
   string b_value = string.Empty;
 
 
   [Inject]
-  HomeNetDaemon.Access.LightEntities LightEntities { get; set;} = null!;
+  HomeNetDaemon.Access.LightEntities LightEntities { get; set; } = null!;
 
   [Inject]
-  HomeNetDaemon.Access.Entities Entities {get; set;} = null!;
-  
-  LightController lightController {get; set; } = null!;
+  HomeNetDaemon.Access.Entities Entities { get; set; } = null!;
 
-  LivingRoomLightsController livingRoomLightsController {get; set;} = null!;
+  LightController lightController { get; set; } = null!;
+
+  LivingRoomLightsController livingRoomLightsController { get; set; } = null!;
 
   string RgbResponse = string.Empty;
 
   protected override void OnInitialized() // = On Page Load
-  {   
-      lightController = new LightController(LightEntities.Tvl);
-      livingRoomLightsController = new LivingRoomLightsController(Entities);
+  {
+    lightController = new LightController(LightEntities.Tvl);
+    livingRoomLightsController = new LivingRoomLightsController(Entities);
   }
   private void GetColorFromLight()
   {
@@ -66,7 +89,29 @@ Welcome to your new app.
   {
     lightController.Toggle();
   }
+  private Core.Lights.Data.SceneData GetSceneData()
+  {
+    return livingRoomLightsController.GetSceneData();
+  }
+  private void SetLightsHome()
+  {
+    livingRoomLightsController.ToggleHomeScene();
+  }
+  private async Task DownloadFileFromStream()
+  {
+    Core.Xml.SceneXmlWriter writer = new Core.Xml.SceneXmlWriter();
+    var SceneData = livingRoomLightsController.ScanScenes();
+    var XmlRoot = new Core.Xml.Root.SceneXmlRoot()
+      {
+        Scenes = SceneData
+      };
+
+    var fileStream = writer.ToStream(XmlRoot);
+    fileStream.Position = 0;
+    var fileName = "Scenes.xml";
+
+    using var streamRef = new DotNetStreamReference(stream: fileStream);
+
+    await JS.InvokeVoidAsync("downloadFileFromStream", fileName, streamRef);
+  }
 }
-
-
-

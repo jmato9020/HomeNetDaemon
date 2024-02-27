@@ -15,9 +15,9 @@ builder.Host
   .ConfigureServices((_, services) =>
   {
     services
-        .AddAppsFromAssembly(Assembly.GetExecutingAssembly())
-        .AddNetDaemonStateManager()
-        .AddHomeAssistantGenerated().AddSingleton<IEntities,Entities>();
+      .AddAppsFromAssembly(Assembly.GetExecutingAssembly())
+      .AddNetDaemonStateManager()
+      .AddHomeAssistantGenerated().AddSingleton<IEntities, Entities>();
   });
 
 
