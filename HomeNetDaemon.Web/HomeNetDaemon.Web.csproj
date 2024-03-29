@@ -8,6 +8,7 @@
     <ProjectReference Include="..\..\NetDaemon\src\Runtime\NetDaemon.Runtime\NetDaemon.Runtime.csproj" />
     <ProjectReference Include="..\HomeNetDaemon.Access\HomeNetDaemon.Access.csproj" />
     <ProjectReference Include="..\HomeNetDaemon.Core\HomeNetDaemon.Core.csproj" />
+    <ProjectReference Include="..\..\NetDaemon\src\HassModel\NetDaemon.HassModel\NetDaemon.HassModel.csproj" />
   </ItemGroup>
 
   <ItemGroup>
